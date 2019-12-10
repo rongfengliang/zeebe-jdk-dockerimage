@@ -1,0 +1,5 @@
+version: "3"
+services: 
+    zeebe-build:
+       image: dalongrong/zeebe:0.21.1
+       build: ./
