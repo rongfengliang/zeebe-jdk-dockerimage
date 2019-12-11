@@ -10,6 +10,7 @@ ENV PATH "${ZB_HOME}/bin:${PATH}"
 ENV ZEEBE_VERSION=0.21.1
 ADD https://github.com/krallin/tini/releases/download/v0.18.0/tini /bin/tini
 RUN chmod +x /bin/tini
+RUN mkdir- p ${ZB_HOME}
 RUN wget -O ${ZB_HOME}/zeebe-distribution-${ZEEBE_VERSION}.tar.gz https://github.com/zeebe-io/zeebe/releases/download/${ZEEBE_VERSION}/zeebe-distribution-${ZEEBE_VERSION}.tar.gz 
 RUN tar xfvz ${ZB_HOME}/*.tar.gz --strip 1 -C ${ZB_HOME}/ && rm ${ZB_HOME}/*.tar.gz
 
