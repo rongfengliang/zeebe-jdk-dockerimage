@@ -19,7 +19,7 @@ EXPOSE 26500 26501 26502
 VOLUME ${ZB_HOME}/data
 
 COPY docker/utils/startup.sh /usr/local/bin
-
+COPY --from=hengyunabc/arthas:latest /opt/arthas /opt/arthas
 RUN apt-get --purge remove -y --auto-remove curl
 
 ENTRYPOINT ["tini", "--", "/usr/local/bin/startup.sh"]
